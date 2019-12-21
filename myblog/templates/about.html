@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ image_file }}">
+            <div class="media-body">
+                <h2 class="account-heading">{{ current_user.username }}</h2>
+    			<p class="text-secondary">Email: {{ current_user.email }}</p>
+                <p class="text-secondary">About me: {{ current_user.about_me }}</p>
+                <p class="text-secondary">Last seen on: {{ current_user.last_seen }}</p>
+                {% if current_user == current_user %}
+                    <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+                {% elif not current_user.is_following(current_user) %}
+                    <p><a href="{{ url_for('follow', username=current_user.username) }}">Follow</a></p>
+                {% else %}
+                    <p><a href="{{ url_for('unfollow', username=current_user.username) }}">Unfollow</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

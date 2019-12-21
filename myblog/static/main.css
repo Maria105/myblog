@@ -1,0 +1,103 @@
+body {
+  background: #f2f2f2;;
+  color:  #76cccb;;
+  padding: 10rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2c36c9;
+}
+
+.bg-steel {
+  background-image: url('file:///home/masha/python/pr_6/course/myblog/static/profile_pics/image.jpeg.png');
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #140638;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #2b05ff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 1000;
+}
+
+
+.content-section {
+  background: hsl(0, 53%, 23%);
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.comment-section {
+  grid-area: comment-section;
+}
+
+.mood {
+  grid-area: mood;
+}
+
+.mood-percentage {
+  border: 1px solid gray;
+  min-height: 50px;
+  padding-top: 10px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.comment {
+  border: 1px solid rgb(240, 237, 237);
+  border-radius: 4px;
+  margin: 15px 0px 5px 60px;
+  font-family: monospace;
+}
+
+.article-title {
+  color: #0e2cd3;
+}
+
+a.article-title:hover {
+  color: #18208a;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
