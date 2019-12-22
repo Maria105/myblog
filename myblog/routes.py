@@ -31,13 +31,14 @@ def save_post_picture(form_picture):
     i = Image.open(form_picture)
     i.thumbnail(output_size)
     i.save(picture_path)
-    return picture_fn
+    return f"post/{picture_fn}"
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
     f_name, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
     path = os.path.join(app.root_path, 'static/profile_pics/' + current_user.username)
+    make_sure_path_exists(path)
     picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
 
     output_size = (125, 125)
@@ -219,6 +220,9 @@ def new_post():
     form = PostForm()
     if form.validate_on_submit():
         post = Post(title=form.title.data, content=form.content.data, author=current_user)
+        if form.picture.data:
+            picture_file = save_post_picture(form.picture.data)
+            post.image_file = picture_file
         db.session.add(post)
         db.session.commit()
         flash('Your post has been created!', 'saccess')
@@ -243,7 +247,7 @@ def update_post(post_id):
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
-    return render_template('create_post.html', title='Update Post', form=form, legend='Update Post')
+    return render_template('create_post.html', title='Update Post', post_id=post_id, legend='Update Post')
 
 @app.route("/post/<int:post_id>", methods=['GET','POST'])
 def post(post_id):
@@ -266,7 +270,7 @@ def delete_post(post_id):
     db.session.delete(post)
     db.session.commit()
     flash('Your post has been deleted!', 'success')
-    return render_template('create_post.html', title='Update Post', form=form, legend='Update Post')
+    return render_template('create_post.html', title='Delete Post', post_id=post_id, legend='Delete Post')
 
 
 @app.route('/follow/<username>')
@@ -406,7 +410,7 @@ def user_delete_admin(id):
     flash('User Deleted.')
     return redirect(url_for('users_list_admin'))
 
-app.route("/post/<int:post_id>/comment", methods=["GET", "POST"])
+@app.route("/post/<int:post_id>/comment", methods=["GET", "POST"])
 @login_required
 def comment_post(post_id):
     post = Post.query.get_or_404(post_id)
@@ -414,7 +418,7 @@ def comment_post(post_id):
     form = AddComment()
     if form.validate_on_submit():
         db.create_all()
-        comment = Comment(body=form.body.data, post_id=post.id)
+        comment = Comment(body=form.body.data, post_id=post.id, author=current_user)
         db.session.add(comment)
         db.session.commit()
         flash("Your comment has been added to the post", "success")
@@ -422,30 +426,3 @@ def comment_post(post_id):
     return render_template("comment_post.html", title="Comment Post", form=form)
 
 
-
-'''class HelloView(BaseView):
-    @expose('/')
-    def index(self):
-        return self.render('some-template.html')
-
-class UserAdminView(ModelView, ActionsMixin):
-    column_searchable_list = ('username',)
-    column_sortable_list = ('username', 'admin')
-    column_exclude_list = ('password',)
-    form_excluded_columns = ('password',)
-    form_edit_rules = ('username', 'admin',)
-
-    def is_accessible(self):
-        return current_user.is_authenticated() and current_user.is_admin()
-    def scaffold_form(self):
-        form_class = super(UserAdminView, self).scaffold_form()
-        form_class.password = PasswordField('Password')
-        return form_class
-    def create_model(self, form):
-        model = self.model(
-            form.username.data, form.password.data, form.admin.data
-        )
-        form.populate_obj(model)
-        self.session.add(model)
-        self._on_model_change(form, model, True)
-        self.session.commit()'''

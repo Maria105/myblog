@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-      <article class="media content-section">
-        <img class="rounded-circle account-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
-        <div class="media-body">
+      <article class="content-section">
+        <div>
           <div class="article-metadata">
+            {% if post.image_file %}
+            <img src="{{url_for('static', filename=post.image_file)}}" />
+            {% endif %}<br><br>
             <a class="mr-2" href="#">{{ post.author.username }}</a>
             <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
             {% if post.author == current_user %}
@@ -12,25 +14,28 @@
                 <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
               </div>
             {% endif %}
+            <h2 class="article-title">{{ post.title }}</h2>
+            <p class="article-content" style="overflow-wrap: break-word;">{{ post.content }}</p>
           </div>
-          <h2 class="article-title">{{ post.title }}</h2>
-          <p class="article-content">{{ post.content }}</p>
         </div>
            {% for comment in comments %}
+
             <p>{{comment.body}} </p><br>{{ comment.timestamp}}<br><br>
             {%endfor %}
 
-          <div class="content-section">
-                <form method="POST" action="/post/{{ post.id }}">
-                     
+        <div class="content-section">
+          {% if current_user.is_authenticated %}
+            <form method="POST" action="/post/{{ post.id }}">
+                           
+              <input type="text" name="body"><br>
+                        
+            <p><button class="btn btn-info" type="submit">Leave a comment</button></p>
         
-                      <input type="text" name="body"><br>
-        
-                
-                 <p><button class="btn btn-info" type="submit">Leave a comment</button></p>
-        
-                </form>
-            </div>
+            </form>
+            {% else %}
+            <input type="submit" value="first login" onclick="window.location='/login';" />
+          {% endif %}
+        </div>
 
 
 

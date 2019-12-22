@@ -1,7 +1,9 @@
 body {
-  background: #f2f2f2;;
-  color:  #76cccb;;
-  padding: 10rem;
+  background: #ffeded;;
+  color:  #200c1c;;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 15rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9,15 +11,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-steel {
-  background-image: url('file:///home/masha/python/pr_6/course/myblog/static/profile_pics/image.jpeg.png');
+	background-color: hsla(0, 60%, 23%, 0.664);
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #140638;
+  color: #44268f;
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #2b05ff;
+  color: #4020f5;
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -27,10 +29,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .content-section {
   background: hsl(0, 53%, 23%);
-  padding: 10px 20px;
+  padding: 30px 20px;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
+
 
 .comment-section {
   grid-area: comment-section;
@@ -81,7 +84,7 @@ a.article-title:hover {
 }
 
 .article-metadata a:hover {
-  color: #333;
+  color: rgb(19, 47, 139);
   text-decoration: none;
 }
 
@@ -100,4 +103,9 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+
+.fl-logo-img{
+  text-align: center;
 }

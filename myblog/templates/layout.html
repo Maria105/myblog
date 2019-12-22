@@ -10,18 +10,12 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
-    {% if title %}
-        <title>Flask Test  - {{ title }}</title>
-    {% else %}
-        <title>Flask Test</title>
-    {% endif %}
 
 </head>
 <body>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">Flask Test</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -29,6 +23,11 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
               <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+              <div class="fl-page-header-logo" itemscope="itemscope" itemtype="https://schema.org/Organization">
+                <a href="http://localhost:5000/" itemprop="url">
+                  <img class="fl-logo-img" src="/static/logo.png">
+                </a>
+              </div>
               <div class="footer_follow_us">
                 <a class="footer-colomn_icon" href="https://www.instagram.com/b.miriam/" target="_blank" rel="nofollow">
                   <i class="fa fa-instagram" aria-hidden="true">
@@ -79,7 +78,9 @@
               {% endfor %}
             {% endif %}
           {% endwith %}
+          <div class="container">
           {% block content %}{% endblock %}
+        </div>
         </div>
       </div>
     </main>
@@ -91,4 +92,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
+
 </html>
