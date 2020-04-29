@@ -1,0 +1,242 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section content-section-main">
+    {% if form%}
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ legend }}</legend>
+                <div class="form-group">
+                    {{ form.title.label(class="form-control-label") }}
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.bday.label(class="form-control-label") }}
+                    {% if form.bday.errors %}
+                        {{ form.bday(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.bday.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.bday(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.residence.label(class="form-control-label") }}
+                    {% if form.residence.errors %}
+                        {{ form.residence(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.residence.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.residence(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.residence.label(class="form-control-label") }}
+                    {% if form.work_place.errors %}
+                        {{ form.rwork_place(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.work_place.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.work_place(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.position.label(class="form-control-label") }}
+                    {% if form.position.errors %}
+                        {{ form.position(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.position.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.position(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.degree.label(class="form-control-label") }}
+                    {% if form.rdegree.errors %}
+                        {{ form.degree(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.degree.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.degree(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.academic_status.label(class="form-control-label") }}
+                    {% if form.academic_status.errors %}
+                        {{ form.academic_status(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.academic_status.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.academic_status(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.scientific_specialty.label(class="form-control-label") }}
+                    {% if form.scientific_specialty.errors %}
+                        {{ form.scientific_specialty(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.scientific_specialty.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.scientific_specialty(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.phone.label(class="form-control-label") }}
+                    {% if form.phone.errors %}
+                        {{ form.phone(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.phone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.phone(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.status.label(class="form-control-label") }}
+                    {% if form.status.errors %}
+                        {{ form.status(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.status.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.status(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.id_number.label(class="form-control-label") }}
+                    {% if form.id_number.errors %}
+                        {{ form.id_number(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.id_number.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.id_number(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.solution_number.label(class="form-control-label") }}
+                    {% if form.solution_number.errors %}
+                        {{ form.solution_number(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.solution_number.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.solution_number(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.date_of_decision.label(class="form-control-label") }}
+                    {% if form.date_of_decision.errors %}
+                        {{ form.date_of_decision(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.date_of_decision.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.date_of_decision(class="form-control form-control-lg") | safe }}
+                    {% endif %}
+                    {{ ckeditor.load() }}
+                </div>
+
+
+            
+
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-success") }}
+            </div>
+        </form>
+    {% endif %}
+</div>
+{% endblock content %}

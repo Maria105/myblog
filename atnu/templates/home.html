@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% set page_title = 'Search' %}
+{% block body %}
+    <div>
+        {{ render_form(url_for('search'), form) }} # note: render_form is some marco from another .html file
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% for persoon in person.items %}
+        <article class="media content-section">
+          <div class="media-body">
+
+            <h1> Name <a class="person-title" href="{{ url_for('person', person_id=person.id) }}">{{ person.name }}</a></h1>
+            <p class="person-email" href="{{ url_for('person', person_id=person.id) }}">{{ person.email }}</p>
+            <p class="person-bday" href="{{ url_for('person', person_id=person.id) }}">{{ person.bday }}</p>
+            <p class="person-residence" href="{{ url_for('person', person_id=person.id) }}">{{ person.residence }}</p>
+            <p class="person-work_place" href="{{ url_for('person', person_id=person.id) }}">{{ person.work_place }}</p>
+            <p class="person-position" href="{{ url_for('person', person_id=person.id) }}">{{ person.position }}</p>
+            <p class="person-degree" href="{{ url_for('person', person_id=person.id) }}">{{ person.degree }}</p>
+            <p class="person-academic_status" href="{{ url_for('person', person_id=person.id) }}">{{ person.academic_status }}</p>
+            <p class="person-scientific_specialty" href="{{ url_for('person', person_id=person.id) }}">{{ person.scientific_specialty }}</p>
+            <p class="person-phone" href="{{ url_for('person', person_id=person.id) }}">{{ person.phone }}</p>
+            <p class="person-status" href="{{ url_for('person', person_id=person.id) }}">{{ person.status }}</p>
+            <p class="person-id_number" href="{{ url_for('person', person_id=person.id) }}">{{ person.id_number }}</p>
+            <p class="person-solution_number" href="{{ url_for('person', person_id=person.id) }}">{{ person.solution_number }}</p>
+            <p class="person-date_of_decision" href="{{ url_for('person', person_id=person.id) }}">{{ person.date_of_decision }}</p>
+            <p class="article-content">{{ blog_formating(person.status) | safe }}</p>
+
+          </div>
+        </article>
+    {% endfor %}
+    {% for page_num in persons.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% if page_num %}
+      {% if persons.page == page_num %}
+        <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+      {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+      {% endif %}
+    {% else %}
+      ...
+    {% endif %}
+    {% endfor %}
+{% endblock content %}           

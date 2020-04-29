@@ -1,0 +1,113 @@
+body {
+  background: #ffeded;;
+  color:  #200c1c;;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 15rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2c36c9;
+}
+
+.bg-steel {
+	background-color: hsla(0, 60%, 23%, 0.664);
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #44268f;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #4020f5;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 1000;
+}
+
+
+.name-section .email-section .bday-section .residence-section .work_place-section .position-section .degree-section .academic_status-section .scientific_specialty-section .phone-section .status-section .id_number-section .solution_number-section .date_of_decision-section {
+  background: hsl(0, 53%, 23%);
+  padding: 30px 20px;
+  border-radius: 3px;
+  margin-bottom: 60px;
+}
+
+
+
+.mood {
+  grid-area: mood;
+}
+
+.mood-percentage {
+  border: 1px solid gray;
+  min-height: 50px;
+  padding-top: 10px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+
+
+.article-title {
+  color: #0e2cd3;
+}
+
+a.article-title:hover {
+  color: #18208a;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: rgb(19, 47, 139);
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+
+.fl-logo-img{
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+height: 50px;
+  line-height: 50px;
+  position: relative;
+  border: 1px solid white;
+  padding: 0 1rem;
+}
+
